@@ -1,0 +1,53 @@
+* {
+  /* Text rendering */
+  text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -webkit-text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* :focus {
+  outline: none !important;
+}
+
+html,
+body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+body {
+  overflow-x: hidden;
+  font-feature-settings: "salt";
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+#root > .main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.w-full {
+  width: 100%;
+}

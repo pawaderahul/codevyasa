@@ -1,0 +1,23 @@
+@import "../../../styles/variables";
+
+.btnWithIcon {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 17px 0 18px;
+  border-radius: 5px;
+  border: 1px solid $color-bright-gray;
+  background-color: transparent;
+  color: $color-coffee;
+  cursor: pointer;
+
+  svg {
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Noto Sans";
+  }
+}

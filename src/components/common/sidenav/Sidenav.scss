@@ -1,0 +1,72 @@
+.sidenav-container {
+  width: 87px;
+  height: 100%;
+  background-image: linear-gradient(
+    180deg,
+    #6a727a 0%,
+    #434c57 35%,
+    #1f2022 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 18px 21px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: width ease-in-out 0.2s;
+
+  &.open {
+    width: 360px;
+    padding-inline: 21px;
+    transition: width ease-in-out 0.2s;
+  }
+}
+
+.sidenav-container .logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: white;
+  margin: 0 0 44px;
+
+  p {
+    text-align: center;
+    line-height: 45px;
+    font-weight: 500;
+  }
+}
+
+.sidenav-container .menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidenav-container.open button {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  p {
+    display: block;
+    font-size: 16px;
+    font-family: "Open Sans";
+    color: white;
+  }
+}
+
+.sidenav-container button {
+  background: transparent;
+  border: 0;
+  padding-block: 14px;
+  cursor: pointer;
+}
+
+.sidenav-container button > svg {
+  font-size: 26px;
+  color: white;
+}
+
+.sidenav-container button > p {
+  display: none;
+}

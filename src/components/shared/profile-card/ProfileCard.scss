@@ -1,0 +1,35 @@
+@import "../../../styles/variables";
+
+.profile-card-container {
+  width: 220px;
+  height: 64px;
+  background-color: $color-seashell;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.profile-card-container > .img {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: red;
+  margin: 0;
+  overflow: hidden;
+
+  img{ width: inherit; }
+}
+
+.profile-card-container > .name {
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 500;
+  color: $color-bright-gray;
+  margin-right: -4px;
+  line-height: 0;
+}
+
+.profile-card-container > svg {
+  font-size: 25px;
+}

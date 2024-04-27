@@ -1,0 +1,61 @@
+@import "../../../styles/variables";
+
+.filter-container {
+  width: 280px;
+  height: 100%;
+  background: white;
+  border-radius: 7px;
+}
+
+.filter-container > .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding-inline: 18px;
+  border-bottom: 1px solid $color-light-gray;
+
+  h2 {
+    font-size: 1.3rem;
+    color: $color-bright-gray;
+  }
+  .close-btn {
+    font-size: 30px;
+    border: transparent;
+    background: transparent;
+    line-height: 13px;
+    cursor: pointer;
+  }
+}
+
+.filter-container > .input-container {
+  padding-inline: 18px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  .input-wrapper,
+  .select-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 12px;
+      font-family: "Noto Sans";
+      color: $color-light-gray;
+    }
+    input,
+    select {
+      height: 40px;
+      padding: 0 7px 0 12px;
+      font-size: 16px;
+      font-family: "Noto Sans";
+      color: $color-bright-gray;
+
+      &::placeholder {
+        color: $color-light-gray;
+      }
+    }
+  }
+}
