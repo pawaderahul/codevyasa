@@ -3,20 +3,15 @@ import { usePagination, useTable } from "react-table";
 import { productColumns } from "../../utils/mock-data";
 import MOCK_DATA from "./MOCK_DATA.json";
 import { RxCaretSort } from "react-icons/rx";
-import {
-  RiArrowRightDoubleLine,
-  RiArrowLeftDoubleLine,
-  RiArrowLeftSLine,
-  RiArrowRightSLine,
-} from "react-icons/ri";
 import "./Table.scss";
+import { Pagination } from "../products/pagination/Pagination";
 
 const Table = () => {
   const columns = React.useMemo(() => productColumns, []);
   const data = React.useMemo(() => MOCK_DATA, []);
 
   const tableInstance = useTable(
-    { columns, data, initialState: { pageSize: 10 } },
+    { columns, data, initialState: { pageSize: 12 } },
     usePagination
   );
 
@@ -86,44 +81,14 @@ const Table = () => {
         </tbody>
       </table>
 
-      <section className="pagination-container">
-        <button onClick={() => gotoPage(0)}>
-          <RiArrowLeftDoubleLine />
-        </button>
-        <button onClick={previousPage}>
-          <RiArrowLeftSLine />
-        </button>
-        {pageOptions.map((opt) => {
-          return opt < 3 ? (
-            <button
-              className={"page-index" + (pageIndex === opt ? " active" : "")}
-              key={opt}
-              onClick={() => gotoPage(opt)}
-            >
-              {opt + 1}
-            </button>
-          ) : null;
-        })}
-        {pageOptions.length > 4 && (
-          <section className="last-page">
-            <div>...</div>
-            <button
-              className={
-                "page-index" + (pageIndex === pageCount - 1 ? " active" : "")
-              }
-              onClick={() => gotoPage(pageCount - 1)}
-            >
-              {pageCount}
-            </button>
-          </section>
-        )}
-        <button onClick={nextPage}>
-          <RiArrowRightSLine />
-        </button>
-        <button onClick={() => gotoPage(pageCount - 1)}>
-          <RiArrowRightDoubleLine />
-        </button>
-      </section>
+      <Pagination
+        gotoPage={gotoPage}
+        previousPage={previousPage}
+        nextPage={nextPage}
+        pageOptions={pageOptions}
+        pageIndex={pageIndex}
+        pageCount={pageCount}
+      />
     </section>
   );
 };

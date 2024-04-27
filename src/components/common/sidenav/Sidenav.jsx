@@ -40,15 +40,9 @@ const Sidenav = () => {
         </section>
       </section>
 
-      <section className="expand-nav">
-        <button onClick={toggleNav}>
-          {isSidenavOpen ? (
-            <RiArrowLeftDoubleLine />
-          ) : (
-            <RiArrowRightDoubleLine />
-          )}
-        </button>
-      </section>
+      <button className="sidenav-toggle-btn" onClick={toggleNav}>
+        {isSidenavOpen ? <RiArrowLeftDoubleLine /> : <RiArrowRightDoubleLine />}
+      </button>
     </aside>
   );
 };

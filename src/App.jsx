@@ -4,9 +4,9 @@ import Sidenav from "./components/common/sidenav/Sidenav";
 
 function App() {
   return (
-    <section className="main">
+    <section className="root-conatiner">
       <Sidenav />
-      <section className="w-full">
+      <section className="main">
         <Header />
         <Products />
       </section>

@@ -3,41 +3,6 @@
 .table-container {
   margin-top: 24px;
 }
-.table-container > .pagination-container {
-  height: 61px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  padding: 15px 0;
-  box-sizing: border-box;
-  background-color: white;
-
-  button {
-    background: transparent;
-    border: transparent;
-    font-size: 16px;
-    color: $color-light-gray;
-    cursor: pointer;
-  }
-  .page-index {
-    height: 30px;
-    width: 30px;
-    border-radius: 7px;
-
-    &.active {
-      background-color: $color-bright-gray;
-      color: white;
-    }
-  }
-  button > svg {
-    font-size: 24px;
-  }
-
-  .last-page {
-    display: flex;
-    gap: 12px;
-  }
-}
 
 table {
   border-collapse: collapse;
@@ -59,9 +24,14 @@ tr {
   height: 48px;
   border-bottom: 1px solid $color-seashell;
 }
+tr > td:first-child {
+  text-align: center;
+}
+
 td {
   font-size: 16px;
 }
+
 th {
   height: 45px;
 
@@ -72,10 +42,6 @@ th {
   &:first-child > .heading {
     justify-content: center;
   }
-}
-
-tr > td:first-child {
-  text-align: center;
 }
 
 th > .heading {

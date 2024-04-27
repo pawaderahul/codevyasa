@@ -19,7 +19,7 @@ body {
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
   font-feature-settings: "salt";
 }
 
@@ -28,10 +28,16 @@ body {
   width: 100%;
 }
 
-#root > .main {
+#root > .root-conatiner {
   display: flex;
   height: 100%;
   width: 100%;
+
+  .main {
+    width: calc(100% - 87px);
+    height: 100vh;
+    overflow-y: scroll;
+  }
 }
 
 html,
