@@ -1,56 +1,64 @@
 @import "../../styles/variables";
 
-.table-container {
+.table-wrapper {
   margin-top: 24px;
 }
 
-table {
+.table-wrapper > table {
   border-collapse: collapse;
   width: 100%;
   background-color: white;
-}
 
-thead {
-  background-color: $color-light-coffee;
-}
-
-th,
-td {
-  text-align: left;
-  font-family: "Noto Sans";
-}
-
-tr {
-  height: 48px;
-  border-bottom: 1px solid $color-seashell;
-}
-tr > td:first-child {
-  text-align: center;
-}
-
-td {
-  font-size: 16px;
-}
-
-th {
-  height: 45px;
-
-  svg {
-    font-size: 20px;
+  .header {
+    background-color: $color-light-coffee;
   }
 
-  &:first-child > .heading {
-    justify-content: center;
+  .row:hover {
+    background-color: $color-seashell;
   }
-}
 
-th > .heading {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  cursor: pointer;
-}
+  th,
+  td {
+    text-align: left;
+    font-family: "Noto Sans";
+    overflow: hidden;
+  }
 
-colgroup > col:first-child {
-  text-align: center;
+  tr {
+    height: 48px;
+    border-bottom: 1px solid $color-seashell;
+  }
+  tr > td:first-child {
+    text-align: center;
+  }
+
+  td {
+    font-size: 16px;
+  }
+
+  th {
+    height: 45px;
+
+    svg {
+      font-size: 20px;
+    }
+
+    &:first-child > .heading {
+      justify-content: center;
+    }
+  }
+
+  th > .heading {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+  }
+
+  th:first-child,
+  th:last-child {
+    .heading svg {
+      display: none;
+    }
+  }
 }

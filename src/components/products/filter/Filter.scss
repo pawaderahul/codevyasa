@@ -28,9 +28,41 @@
   }
 }
 
-.filter-container > .input-container {
-  padding-inline: 18px;
-  padding-top: 30px;
+.filter-container > .filter-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 61px);
+  padding: 30px 18px 20px;
+  box-sizing: border-box;
+}
+
+.filter-container > .filter-content > .filter-actions {
+  button {
+    height: 40px;
+    width: 100%;
+    color: $color-bright-gray;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: "Noto Sans";
+    font-weight: 500;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:first-child {
+      background-color: $color-coffee;
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    &:last-child:hover {
+      background-color: $color-seashell;
+    }
+  }
+}
+
+.filter-container > .filter-content > .input-container {
   display: flex;
   flex-direction: column;
   gap: 18px;

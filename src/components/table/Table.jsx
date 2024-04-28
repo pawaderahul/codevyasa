@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import { usePagination, useTable } from "react-table";
+import { usePagination, useTable, useRowSelect } from "react-table";
 import { productColumns } from "../../utils/mock-data";
 import MOCK_DATA from "./MOCK_DATA.json";
 import { RxCaretSort } from "react-icons/rx";
 import "./Table.scss";
 import { Pagination } from "../products/pagination/Pagination";
+import { Checkbox } from "../products/checkbox/Checkbox";
 
 const Table = () => {
   const columns = React.useMemo(() => productColumns, []);
@@ -12,7 +14,30 @@ const Table = () => {
 
   const tableInstance = useTable(
     { columns, data, initialState: { pageSize: 12 } },
-    usePagination
+    usePagination,
+    useRowSelect,
+    (hooks) => {
+      hooks.visibleColumns.push((columns) => {
+        return [
+          {
+            id: "selection",
+            // eslint-disable-next-line react/prop-types
+            Header: ({ getToggleAllRowsSelectedProps }) => (
+              <Checkbox {...getToggleAllRowsSelectedProps()} />
+            ),
+            Cell: ({ row }) => (
+              <Checkbox {...row.getToggleRowSelectedProps()} />
+            ),
+          },
+          ...columns,
+          {
+            id: "button",
+            Header: () => <a>...</a>,
+            Cell: () => <a>...</a>,
+          },
+        ];
+      });
+    }
   );
 
   const {
@@ -32,14 +57,9 @@ const Table = () => {
   const { pageIndex } = state;
 
   return (
-    <section className="table-container">
-      <table {...getTableProps()}>
-        <colgroup>
-          {productColumns.map((pc, i) => {
-            return <col key={i} />;
-          })}
-        </colgroup>
-
+    <section className="table-wrapper">
+      <table className="table" {...getTableProps()}>
+        
         <thead>
           {headerGroups.map((headerGrp) => {
             const { key, ...restHeaderProps } = headerGrp.getHeaderGroupProps();
@@ -48,7 +68,7 @@ const Table = () => {
                 {headerGrp.headers.map((column) => {
                   const { key, restHeaderProps } = column.getHeaderProps();
                   return (
-                    <th key={key} {...restHeaderProps}>
+                    <th key={key} {...restHeaderProps} className="header">
                       <section className="heading">
                         <span>{column.render("Header")}</span>
                         <RxCaretSort />
@@ -66,11 +86,11 @@ const Table = () => {
             prepareRow(row);
             const { key, restRowProps } = row.getRowProps();
             return (
-              <tr key={key} {...restRowProps}>
+              <tr key={key} {...restRowProps} className="row">
                 {row.cells.map((cell) => {
                   const { key, restCellProps } = cell.getCellProps();
                   return (
-                    <td key={key} {...restCellProps}>
+                    <td key={key} {...restCellProps} className="cell">
                       {cell.render("Cell")}
                     </td>
                   );
