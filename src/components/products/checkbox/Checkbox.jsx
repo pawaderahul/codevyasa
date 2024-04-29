@@ -1,4 +1,5 @@
 import React from "react";
+import "./Checkbox.scss";
 
 // eslint-disable-next-line react/prop-types
 export const Checkbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
@@ -11,7 +12,7 @@ export const Checkbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
 
   return (
     <>
-      <input type="checkbox" ref={resolvedRef} {...rest} />
+      <input className="table-checkbox" type="checkbox" ref={resolvedRef} {...rest} />
     </>
   );
 });

@@ -1,3 +1,5 @@
+@import "../../../styles/mixins";
+
 .sidenav-container {
   width: 87px;
   height: 100%;
@@ -16,9 +18,13 @@
   transition: width ease-in-out 0.2s;
 
   &.open {
-    width: 360px;
+    width: 300px;
     padding-inline: 21px;
     transition: width ease-in-out 0.2s;
+  }
+
+  @include for-xxl {
+    z-index: 1;
   }
 }
 

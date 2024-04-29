@@ -1,0 +1,83 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.table-actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  .search-container {
+    label {
+      font-size: 12px;
+      color: $color-bright-gray;
+    }
+    .input-wrapper {
+      height: 40px;
+      width: 300px;
+      border: 1px solid $color-bright-gray;
+      border-radius: 8px;
+      margin-top: 2px;
+      padding: 0 11px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .input-wrapper > svg {
+      font-size: 21px;
+      color: $color-light-gray;
+    }
+    .input-wrapper > input {
+      background: transparent;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 5px 0 4px;
+      border: transparent;
+      outline: transparent;
+      width: 100%;
+      color: $color-light-gray;
+      font-family: "Noto Sans";
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+
+    button {
+      &:first-child {
+        background-color: $color-coffee;
+        color: white;
+        border: transparent;
+      }
+      &:last-child {
+        background-color: transparent;
+        color: $color-bright-gray;
+      }
+    }
+  }
+}
+
+
+//for xl & md
+.table-actions-container {
+  @include for-xl {
+    .actions > .btnWithIcon p {
+      display: none;
+    }
+  }
+
+  @include for-md {
+    .table-actions-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .table-actions-container > .search-container {
+      width: -webkit-fill-available;
+
+      .input-wrapper {
+        width: auto;
+      }
+    }
+  }
+}

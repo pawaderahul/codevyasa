@@ -1,0 +1,28 @@
+@import "./variables";
+
+//Media Queries
+@mixin for-sm {
+  @media (max-width: $sm) {
+    @content;
+  }
+}
+@mixin for-md {
+  @media (max-width: $md) {
+    @content;
+  }
+}
+@mixin for-lg {
+  @media (max-width: $lg) {
+    @content;
+  }
+}
+@mixin for-xl {
+  @media (max-width: $xl) {
+    @content;
+  }
+}
+@mixin for-xxl {
+  @media (max-width: $xxl) {
+    @content;
+  }
+}

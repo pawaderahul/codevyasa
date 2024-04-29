@@ -57,49 +57,56 @@ const Table = () => {
   const { pageIndex } = state;
 
   return (
-    <section className="table-wrapper">
-      <table className="table" {...getTableProps()}>
-        
-        <thead>
-          {headerGroups.map((headerGrp) => {
-            const { key, ...restHeaderProps } = headerGrp.getHeaderGroupProps();
-            return (
-              <tr key={key} {...restHeaderProps}>
-                {headerGrp.headers.map((column) => {
-                  const { key, restHeaderProps } = column.getHeaderProps();
-                  return (
-                    <th key={key} {...restHeaderProps} className="header">
-                      <section className="heading">
-                        <span>{column.render("Header")}</span>
-                        <RxCaretSort />
-                      </section>
-                    </th>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </thead>
+    <section className="table-container">
+      <section className="table-wrapper">
+        <table className="table" {...getTableProps()}>
+          <colgroup className="column-wrapper">
+            {headerGroups[0].headers.map((i) => (
+              <col className="column" key={i} />
+            ))}
+          </colgroup>
 
-        <tbody {...getTableBodyProps()}>
-          {page.map((row) => {
-            prepareRow(row);
-            const { key, restRowProps } = row.getRowProps();
-            return (
-              <tr key={key} {...restRowProps} className="row">
-                {row.cells.map((cell) => {
-                  const { key, restCellProps } = cell.getCellProps();
-                  return (
-                    <td key={key} {...restCellProps} className="cell">
-                      {cell.render("Cell")}
-                    </td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+          <thead>
+            {headerGroups.map((headerGrp) => {
+              const { key, ...restHeaderProps } = headerGrp.getHeaderGroupProps();
+              return (
+                <tr key={key} {...restHeaderProps}>
+                  {headerGrp.headers.map((column) => {
+                    const { key, restHeaderProps } = column.getHeaderProps();
+                    return (
+                      <th key={key} {...restHeaderProps} className="header">
+                        <section className="heading">
+                          <span>{column.render("Header")}</span>
+                          <RxCaretSort />
+                        </section>
+                      </th>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </thead>
+
+          <tbody {...getTableBodyProps()}>
+            {page.map((row) => {
+              prepareRow(row);
+              const { key, restRowProps } = row.getRowProps();
+              return (
+                <tr key={key} {...restRowProps} className="row">
+                  {row.cells.map((cell) => {
+                    const { key, restCellProps } = cell.getCellProps();
+                    return (
+                      <td key={key} {...restCellProps} className="cell">
+                        {cell.render("Cell")}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </section>
 
       <Pagination
         gotoPage={gotoPage}

@@ -37,6 +37,11 @@ body {
     width: calc(100% - 87px);
     height: 100vh;
     overflow-y: scroll;
+
+    @include for-xxl {
+      position: absolute;
+      left: 87px;
+    }
   }
 }
 
@@ -56,4 +61,8 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+a {
+  cursor: pointer;
 }

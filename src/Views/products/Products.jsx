@@ -1,14 +1,10 @@
 import { useState } from "react";
-import ButtonWithIcon from "../../components/shared/button-with-icon/ButtonWithIcon";
 import Label from "../../components/shared/label/Label";
 import Table from "../../components/table/Table";
 import { labels } from "../../utils/mock-data";
 import "./Products.scss";
-import { FiSearch } from "react-icons/fi";
-import { IoMdAdd } from "react-icons/io";
-import { IoFilterSharp } from "react-icons/io5";
-import { TbTableExport } from "react-icons/tb";
 import Filter from "../../components/products/filter/Filter";
+import TableActions from "../../components/products/table-actions/TableActions";
 
 const Products = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -18,7 +14,7 @@ const Products = () => {
 
   return (
     <section className="products-container">
-      <section className="w-full">
+      <section className={isFilterOpen ? "w-with-filter" : " w-full"}>
         {labels && (
           <section className="labels-container">
             {labels.map((label) => {
@@ -27,33 +23,7 @@ const Products = () => {
           </section>
         )}
 
-        <section className="table-actions-container">
-          <section className="search-container">
-            <label>Search</label>
-            <section className="input-wrapper">
-              <FiSearch />
-              <input type="text" placeholder="Search" />
-            </section>
-          </section>
-
-          <section className="actions">
-            <ButtonWithIcon
-              icon={<IoMdAdd />}
-              name="Add Products"
-              clickHandler={() => {}}
-            />
-            <ButtonWithIcon
-              icon={<IoFilterSharp />}
-              name="Filters"
-              clickHandler={toggleFilter}
-            />
-            <ButtonWithIcon
-              icon={<TbTableExport />}
-              name="Export"
-              clickHandler={() => {}}
-            />
-          </section>
-        </section>
+        <TableActions toggleFilter={toggleFilter} />
 
         <Table />
       </section>
